@@ -1,8 +1,6 @@
 <?php
 
-$json = file_get_contents('https://obscure-tundra-57006.herokuapp.com/webhook.php');
-$opj = json_decode($json);
-print_r($opj);
+
 
 
 
@@ -12,6 +10,7 @@ $access_token = '17PM+HYIz7F2ncilultvHjsI/WgZJAgwTPEsWRw58pAiO73LDeqbwRizOP9nf2J
 // Get POST body content
 $content = file_get_contents('php://input');
 // Parse JSON
+print_r($content);
 $events = json_decode($content, true);
 // Validate parsed JSON data
 if (!is_null($events['events'])) {
