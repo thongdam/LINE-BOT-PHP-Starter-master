@@ -47,12 +47,10 @@ if (!is_null($events['events'])) {
 			curl_close($ch);
 
 			echo $result . "\r\n";
+			print_r($result);
 		}
 	}
 }
 echo "OK";
 
 
-$th = file_get_contents('https://obscure-tundra-57006.herokuapp.com/webhook.php');
-$oj = json_decode($th);
-$print_r($oj);
