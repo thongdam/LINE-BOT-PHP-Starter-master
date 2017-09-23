@@ -1,2 +1,3 @@
 <?php
-echo"Hello bot";
+echo "Hello bot!"; 
+
