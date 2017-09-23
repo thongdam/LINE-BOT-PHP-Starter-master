@@ -1,3 +1,4 @@
+<?php
 
 curl -X POST \
 -H 'Content-Type:application/json' \
@@ -15,3 +16,4 @@ curl -X POST \
         }
     ]
 }' https://api.line.me/v2/bot/message/reply
+?>
