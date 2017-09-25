@@ -1,6 +1,3 @@
 <?php 
-function line_api()
-{
-    $_POST[];
-}
-line_api();
+   $line_api =  $_POST["https://obscure-tundra-57006.herokuapp.com/webhook.php"];
+ print_r($line_api);
