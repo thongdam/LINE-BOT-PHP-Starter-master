@@ -1,6 +1,6 @@
 <?php 
 function line_api()
 {
-    $test = $_POST[];
+    $_POST[];
 }
 line_api();
