@@ -1,2 +1,2 @@
 <?php 
-$line = ($_POST[]);
+echo "OK";
