@@ -1,3 +1,5 @@
 <?php
 
-echo "ok";
+$line = $_POST();
+$encode = json_decode($line);
+print_r($encode);
