@@ -1,5 +1,5 @@
 <?php
 
-$line = $_POST();
+$line = $_POST[];
 $encode = json_decode($line);
 print_r($encode);
