@@ -1,2 +1,2 @@
 <?php 
-echo "OK";
+$line_name = $_POST ["text"];
