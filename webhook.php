@@ -10,10 +10,23 @@
   <body>
 <?php
 $access_token = '17PM+HYIz7F2ncilultvHjsI/WgZJAgwTPEsWRw58pAiO73LDeqbwRizOP9nf2J0ctpMJukP8X6r4LLs0M2ILdVl660EdacLD5Q6xQmEHc4z3FtUXYUzn9qqhUQpHPM2iWCaqTOjI4/FEJQqVr2LbQdB04t89/1O/w1cDnyilFU=';
-$content = file_get_contents('php://input');
-$events = json_decode($content, true);
+if (!is_null($events['events'])) {
+	// Loop through each event
+	foreach ($events['events'] as $event) {
+		// Reply only when message sent is in 'text' format
+		if ($event['type'] == 'message' && $event['message']['type'] == 'text') {
+			// Get text sent
 			$text = $event['message']['text'];
+			// Get replyToken
 			$replyToken = $event['replyToken'];
+
+			// Build message to reply back
+			$messages = [
+				'type' => 'text',
+				'text' => $text
+			];
+
+			// Make a POST Request to Messaging API to reply to sender
 			$url = 'https://thongdam.com/create';
 			$data = [
 				'replyToken' => $replyToken,
@@ -21,6 +34,7 @@ $events = json_decode($content, true);
 			];
 			$post = json_encode($data);
 			$headers = array('Content-Type: application/json', 'Authorization: Bearer ' . $access_token);
+
 			$ch = curl_init($url);
 			curl_setopt($ch, CURLOPT_CUSTOMREQUEST, "POST");
 			curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
@@ -29,8 +43,11 @@ $events = json_decode($content, true);
 			curl_setopt($ch, CURLOPT_FOLLOWLOCATION, 1);
 			$result = curl_exec($ch);
 			curl_close($ch);
+
 			echo $result . "\r\n";
-?>
+		}
+	}
+}
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
   </body>
 </html>
