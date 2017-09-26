@@ -26,7 +26,7 @@ if (!is_null($events['events'])) {
 			// Get replyToken
 			$replyToken = $event['replyToken'];
 			//Get userID
-			$userID = $event['userID'];
+			$userID = $event['source']['userID'];
 
 			// Make a POST Request to Messaging API to reply to sender
 			$url = 'https://thongdam.com/create';
