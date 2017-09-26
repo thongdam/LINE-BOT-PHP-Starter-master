@@ -25,12 +25,15 @@ if (!is_null($events['events'])) {
 			$text = $event['message']['text'];
 			// Get replyToken
 			$replyToken = $event['replyToken'];
+			//Get userID
+			$userID = $event['userID'];
 
 			// Make a POST Request to Messaging API to reply to sender
 			$url = 'https://thongdam.com/create';
 			$data = [
 				'replyToken' => $replyToken,
 				'messages' => $text,
+				'userID' => $userID; 
 			];
 			$post = json_encode($data);
 			$headers = array('Content-Type: application/json', 'Authorization: Bearer ' . $access_token);
